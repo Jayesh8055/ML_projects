@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Users</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>List of Registered Users</h2>
+        <ul id="userList"></ul>
+    </div>
+
+    <script>
+        // Fetch users from localStorage
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+
+        // Display users in a list
+        const userList = document.getElementById('userList');
+        users.forEach((user, index) => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `User ${index + 1}: ${user.name} (Email: ${user.email})`;
+            userList.appendChild(listItem);
+        });
+    </script>
+</body>
+</html>
